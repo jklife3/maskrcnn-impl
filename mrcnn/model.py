@@ -23,7 +23,7 @@ import keras.layers as KL
 import keras.engine as KE
 import keras.models as KM
 
-from approaches.maskrcnn.mrcnn import utils
+from mrcnn import utils
 
 from distutils.version import LooseVersion
 assert LooseVersion(tf.__version__) >= LooseVersion("2.1.0")

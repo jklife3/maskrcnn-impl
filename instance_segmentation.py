@@ -9,6 +9,7 @@ import logging
 from mrcnn import utils
 import mrcnn.model as modellib
 from mrcnn.config import Config
+from mrcnn import visualize
 
 # Root directory of the project
 ROOT_DIR = os.path.abspath(".")
@@ -73,6 +74,9 @@ def run_detection(image, model, class_names):
         label = class_names[class_id]
         object = {"class_name": label, "offset": offset, "size_percentage": size_percentage}
         objects.append(object)
+
+    visualize.display_instances(image, r['rois'], r['masks'], r['class_ids'],
+                                class_names, r['scores'])
 
     return objects
 
